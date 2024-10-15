@@ -30,3 +30,8 @@ curl http://localhost:5044 \
 1. Make changes on pipeline config `logstash.conf`
 1. Wait 5s until logstash auto-reload
 1. Back to step 5
+
+## References
+
+- https://docs.splunk.com/Documentation/SplunkCloud/latest/Data/FormateventsforHTTPEventCollector
+- https://www.elastic.co/guide/en/logstash/current/ls-to-ls-http.html
