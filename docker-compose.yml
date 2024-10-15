@@ -1,0 +1,24 @@
+version: "3.6"
+
+services:
+  logstash:
+    image: logstash:8.15.2
+    container_name: logstash
+    user: root
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash.yml:/usr/share/logstash/config/logstash.yml
+    network_mode: host
+    # ports:
+    #   - 5044:5044
+  so1:
+    image: splunk/splunk:9.2
+    container_name: so1
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_HEC_TOKEN=splunkhectoken
+      - SPLUNK_PASSWORD
+    network_mode: host
+    # ports:
+    #   - 8000:8000
+    #   - 8088:8088
